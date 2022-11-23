@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  nextjs:
+    container_name: nextjs
+    build:
+      context: .
+      dockerfile: ./website/Dockerfile
+  nginx:
+    container_name: website-nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - 80:80
+  pocketbase:
+    container_name: website-pocketbase
+    build:
+      context: .
+      dockerfile: ./database/Dockerfile
+    volumes:
+      - ./database/pb_data:/pb_data

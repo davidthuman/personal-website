@@ -8,7 +8,7 @@ export default function ExploreCards(props: any) {
                 {props.title}
             </div>
             <div>
-                {props.description}
+                {props.summary}
             </div>
         </div>
     )

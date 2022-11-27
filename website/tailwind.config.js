@@ -11,6 +11,10 @@ module.exports = {
         '1/10': '10%',
         '9/10': '90%'
       }),
+      spacing: {
+        'topNav': '6rem',
+        'sidePanel': '20rem'
+      }
     },
     fontFamily: {
       'body': ['Helvetica Neue Light', 'sans-serif']

@@ -9,10 +9,10 @@ export default function RootLayout({
     return (
         <html>
             <head></head>
-            <body className="">
+            <body>
                 <div className="bg-[#efefefff] h-screen font-body">
                     <TopNavBar></TopNavBar>
-                    <div className="h-9/10">
+                    <div className="pt-topNav h-full">
                         {children}
                     </div>
                 </div>

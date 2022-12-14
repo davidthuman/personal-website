@@ -1,16 +1,19 @@
-
-
+import Link from "next/link"
 
 // The Side Panel needs all Tags associated with a piece of content and the content's ID
-export default function SidePanel() {
+export default function SidePanel({ type, tag, side }: any) {
+
+    const sideLinks: any[] = side;
 
     return (
-        <div className="bg-white rounded-r-3xl w-80 border-4 border-[#3d3652ff] divide-y-4 divide-[#3d3652ff] h-9/10 fixed left-0">
+        <div className="bg-white rounded-r-3xl w-80 border-4 border-[#3d3652ff] divide-y-4 divide-[#3d3652ff] h-full fixed left-0">
             <div className="text-[#3d3652ff] text-2xl p-3 text-center">
-                Personal Builds
+                {tag + " " + type}
             </div>
-            <div className="">
-                other stuff
+            <div className="flex flex-col gap-2 p-3">
+                {sideLinks?.map( (post) => {
+                    return <Link className="text-[#3d3652ff]" href={`/${type}/${post.id}`}>{post.title}</Link>;
+                })}
             </div>
 
         </div>

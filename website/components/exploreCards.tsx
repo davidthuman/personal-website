@@ -6,7 +6,7 @@ export default function ExploreCards(props: any) {
         <div className="shadow-lg bg-white rounded-xl p-3">
             <Link
                 className="text-center text-xl pt-2 pb-2 text-[#3d3652ff]"
-                href={`/builds/${props.id}`}
+                href={`/code/${props.id}`}
             >
                 {props.title}
             </Link>

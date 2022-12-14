@@ -1,1 +1,5 @@
 scp -r my-website/* username@<linode-ip-address>:/var/www/example.com/
+
+
+change builds to Code
+change ideas to Politics

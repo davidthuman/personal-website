@@ -12,8 +12,9 @@ module.exports = {
         '9/10': '90%'
       }),
       spacing: {
-        'topNav': '6rem',
-        'sidePanel': '20rem'
+        'topNav': '5rem',
+        'sidePanel': '20rem',
+        'sidePanel-height': '90%'
       }
     },
     fontFamily: {
@@ -22,3 +23,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+

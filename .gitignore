@@ -1,3 +1,7 @@
+scripts/
+content/
+nginx/
+
 # Logs
 logs
 *.log

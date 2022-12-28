@@ -1,20 +1,20 @@
 import SidePanel from "../../../components/sidepanel";
-import PocketBase from 'pocketbase';
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import database from "../../../pages/api/baseData";
 
 async function getContent(contentID: string) {
 }
 
 async function getSideContent(tags: string) {
 
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const records = await db.collection('code').getList(1,50,{filter: `tags ~ "${tags}"`})
     return records?.items as any[];
 }
 
 export default async function BuildsPage({ params }: any) {
 
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const record = await db.collection('code').getOne(params.id);
     var markdown
     var pdf
@@ -36,7 +36,7 @@ export default async function BuildsPage({ params }: any) {
                         h4: ({node, ...props}) => <h4 className="text-lg mb-5" {...props} />,
                         p: ({node, ...props}) => <p className="mb-5" {...props} />,
                         ul: ({node, ...props}) => <ul className="mb-5 pl-5" {...props} />,
-                        img: ({node, ...props}) => <img className="border-2 border-[#3d3652ff]" {...props} />
+                        img: ({node, ...props}) => <img className="border-2 border-[#3d3652ff] w-2/3" {...props} />
                     }}
                 />
     }
@@ -44,7 +44,7 @@ export default async function BuildsPage({ params }: any) {
         const url = db.getFileUrl(record, record.pdf).replace("s//", "s/code/");
         console.log(url)
         pdf = <object className="px-10 bg-[#efefefff]" data={url} type="application/pdf" width="100%" height="100%">
-                      <p>Alternative text - include a link <a href={url}>to the PDF!</a></p>
+                      <p>Alternative text - include a link <a className="" href={url}>to the PDF!</a></p>
                     </object>
     }
     if (record.slides !== '') {
@@ -55,17 +55,17 @@ export default async function BuildsPage({ params }: any) {
                     </object>
     }
     if (record.video === true) {
-        video = <video className="p-10 h-2/3 w-full bg-[#efefefff]" controls>
-                    <source src="/roll_call_video.mov" type="video/mov" />
+        video = <video className="px-10 my-10  h-2/3 w-full bg-[#efefefff]" controls>
+                    <source src="roll_call_video.mov" type="video/mov" />
                 </video>
     }
 
     const side: any[] = await getSideContent(record.tags);
     
     return (
-        <div className="flex bg-[#efefefff] h-full">
+        <div className="flex bg-[#efefefff] h-full w-full flex-wrap">
             <SidePanel type="code" tag={record.tags} side={side}/>
-            <div className="pl-sidePanel w-full h-full bg-[#efefefff]">
+            <div className="w-full h-full bg-[#efefefff] lg:pl-sidePanel">
                 {video}{slides}{pdf}{markdown}
             </div>
         </div>

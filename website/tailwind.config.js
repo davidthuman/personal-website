@@ -18,7 +18,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      'body': ['Helvetica Neue Light', 'sans-serif']
+      'body1': ['Helvetica Neue Light', 'sans-serif'],
+      'body': ["'CMS'", "'Droid Sans'", 'Helvetica', 'Arial', 'sans-serif']
     }
   },
   plugins: [],

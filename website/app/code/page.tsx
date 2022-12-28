@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import PocketBase from 'pocketbase';
+import database from '../../pages/api/baseData';
 
 async function getBuilds() {
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const data = await db.collection('code').getList();
     return data?.items as any[];
 }
@@ -59,7 +59,7 @@ function Build({ build }: any) {
 
     return (
         <div className="grid grid-flow-row">
-            <Link className="ml-7 text-[#3d3652ff]" href={`/code/${id}`}>{title}</Link>
+            <Link className="ml-7 text-[#3d3652ff] text-lg" href={`/code/${id}`}>{title}</Link>
             {summary}
         </div>
     )

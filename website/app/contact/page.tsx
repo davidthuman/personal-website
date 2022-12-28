@@ -2,10 +2,10 @@ import Image from "next/image"
 
 export default function ContactMe() {
 
-    const className_0 = "grid grid-rows-2 gap-10 justify-center h-full pt-20"
-    const className_1 = "flex flex-row h-fit justify-evenly shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff]"
-    const className_2 = "flex flex-row gap-10"
-    const className_3 = "flex flex-col h-fit shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff]"
+    const className_0 = "flex flex-col gap-10 p-10"
+    const className_1 = "flex flex-row self-center w-fit h-fit justify-evenly shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff]"
+    const className_2 = "flex flex-row self-center gap-10 lg:flex-row"
+    const className_3 = "flex flex-col self-center w-fit h-fit shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff] w-1/2"
 
     return (
     <div className={className_0}>

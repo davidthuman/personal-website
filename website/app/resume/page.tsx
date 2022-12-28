@@ -1,10 +1,9 @@
-import SidePanel from "../../components/sidepanel";
-import PocketBase from 'pocketbase';
 import Image from "next/image";
+import database from "../../pages/api/baseData";
 
 async function getResume() {
 
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const records = await db.collection('files').getList(1,50, {filter: 'name = "resume"'})
     const resume = records?.items[0]
     const url = db.getFileUrl(resume, resume.file);
@@ -18,7 +17,7 @@ export default async function Resume() {
 
     return (
         <div className="bg-[#efefefff] flex justify-center">
-            <div className="py-10 mx-10 flex flex-col w-8/12 gap-5">
+            <div className="py-10 mx-10 flex flex-col w-full gap-5 lg:w-8/12">
 
                 <div className="flex justify-evenly items-center">
                     <div className="text-4xl p-5">Resume</div>
@@ -35,6 +34,8 @@ export default async function Resume() {
                     <div>C</div><Image className="" src="/c_logo.png" alt="" width={50} height={0}/>
                     <div>OCaml</div><Image className="" src="/ocaml_logo.svg" alt="" width={50} height={0}/>
                     <div>SQL</div><Image className="" src="/sql_logo.png" alt="" width={50} height={0}/>
+                </div>
+                <div className="pl-5 grid grid-rows-2 grid-flow-col-dense justify-items-center items-center">
                     <div>Django</div><Image className="" src="/django_logo.svg" alt="" width={50} height={0}/>
                     <div>React JS</div><Image className="" src="/react_logo.png" alt="" width={50} height={0}/>
                     <div>Next JS</div><Image className="" src="/next_logo.png" alt="" width={50} height={0}/>

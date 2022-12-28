@@ -3,9 +3,10 @@ import Image from "next/image"
 export default function AboutMe() {
 
     return (
-        <div className="flex h-full w-full justify-center items-center overscroll-contain">
-            <div className="grid grid-cols-2 md:grid-cols-1 grid-rows-2 w-2/3 shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff] justify-center items-center">
-                <div className="col-span-2 p-5 px-10">
+        <div className="flex justify-center">
+        <div className="flex flex-col self-center shadow-lg bg-white rounded-xl border-2 border-[#3d3652ff] m-10 lg:w-2/3">
+            <div className="flex flex-row justify-between">
+                <div className="flex flex-col p-5 px-10">
                     <div className="text-3xl">About David Thuman</div>
                     <div>The background, Thought Process, and Goals</div>
                     <ul className="pl-10 pt-5">
@@ -17,16 +18,15 @@ export default function AboutMe() {
                     </ul>
 
                 </div>
-                <div>
                 <Image
-                    className="aspect-auto object-contain rounded-r-xl bg-[#3d365236] rounded-xl border-l-2  border-b-2 border-[#3d3652ff]"
+                    className="aspect-auto object-contain rounded-r-xl rounded-xl border-l-2  border-b-2 border-[#3d3652ff]"
                     src="/headshot.png"
                     alt="Picture of David Thuman"
-                    width={300}
+                    width={250}
                     height={0}
                 />
-                </div>
-                <div className="col-span-3 p-5 ">
+            </div>
+            <div className="m-5">
                 I was born and raised in Wilmington, North Carolina. After I graduated high school, I have been attending Cornell University, 
                 enrolled in the College of Engineering as an Engineering Physics major. I have always loved math as a child and developed a 
                 love for physics and politics as I went on in high school. The engineering mindset, as I have learned, has been my first line 
@@ -40,9 +40,8 @@ export default function AboutMe() {
                 my devotion to STEM. My dream job fall at the cross-section between computer science and politics. I could go on and on into 
                 the systems, frameworks, and ideas that flow out of the mind of an engineer turned politician, so that is what this website 
                 is for. Here is my application to be your next representative. Happy reading! 
-                </div>
             </div>
         </div>
-        
+        </div>
     )
 }

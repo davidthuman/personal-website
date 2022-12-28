@@ -1,8 +1,8 @@
 import Link from "next/link";
-import PocketBase from 'pocketbase';
+import database from "../../pages/api/baseData";
 
 async function getPolitics() {
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const data = await db.collection('politics').getList();
     return data?.items as any[];
 }
@@ -41,7 +41,7 @@ export default async function BuildsPage() {
                         <div className="grid grid-flow-row gap-5">
                             {politics?.map( (post) => {
                                 if (post.tags.includes('Personal')) {
-                                    return <Link className="ml-7 text-[#3d3652ff]" href={`/politics/${post.id}`}>{post.title}</Link>;
+                                    return <Link className="ml-7 text-[#3d3652ff] text-lg" href={`/politics/${post.id}`}>{post.title}</Link>;
                                 }})
                             }
                         </div>

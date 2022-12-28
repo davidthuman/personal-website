@@ -1,10 +1,10 @@
 import SidePanel from "../../../components/sidepanel";
-import PocketBase from 'pocketbase';
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import database from "../../../pages/api/baseData";
 
 async function getContent(contentID: string) {
 
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const record = await db.collection('politics').getOne(contentID);
     const url = db.getFileUrl(record, record.markdown).replace("s//", "s/politics/");
     const response = await fetch(url);
@@ -25,7 +25,7 @@ async function getContent(contentID: string) {
 
 async function getSideContent(tags: string) {
 
-    const db = new PocketBase('http://0.0.0.0:8090/');
+    const db = database();
     const records = await db.collection('politics').getList(1,50,{filter: `tags ~ "${tags}"`})
     return records?.items as any[];
 }
@@ -39,7 +39,7 @@ export default async function BuildsPage({ params }: any) {
     return (
         <div className="flex bg-[#efefefff]">
             <SidePanel type="politics" tag={tags} side={side}/>
-            <div className="pl-sidePanel m-10 w-9/12">
+            <div className="m-10 w-9/12 lg:pl-sidePanel">
                 {content}
             </div>
         </div>

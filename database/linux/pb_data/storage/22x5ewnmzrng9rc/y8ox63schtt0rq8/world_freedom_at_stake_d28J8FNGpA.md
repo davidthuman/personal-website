@@ -1,0 +1,16 @@
+# World Freedom at Stake
+
+March 28th, 2022
+
+President Biden met with members of the United States 82nd Airborne Division on Friday in Poland, sending the message that their deployments are part of a wider “fight between democracies and oligarchs.” “What’s at stake is what your kids and grandkids are going to look like in terms of their freedom, what you’re engaging in is much more than whether or not you can alleviate the pain and suffering of the people of Ukraine.”
+
+The 82nd Airborne Division is serving alongside the Polish military to bolster NATO’s frontline defenses. Since February, the United States has sent around 12,000 troops to allies in Europe. Total deployment numbers for US troops in Europe, both from temporary missions and permanent stations, are now around 100,000. Biden and other US officials have all made it clear that the increased US military presence in Europe is only to deter Russia from advancing into any NATO territory.
+
+Recent polls from the AP-NORC Center for Public Affairs show that 56 percent of Americans believe that President Biden’s response to the Russian invasion of Ukraine has “not been tough enough.” It also shows that only a quarter of Americans said they have confidence in his ability to handle a crisis or effectively manage the US military. A poll out of NPR/Ipsos found that 45 percent of Americans believe that President Biden is being too cautious, with over 60 percent saying the United States should give Ukraine the support it wants, while still wanting to avoid a large conflict with Russia.
+
+Because it seems that strong military support from the US to Ukraine, against Russia, is out of the picture, the US and other countries have kept strong with the economic sanctions. However, even with the Russian stock market tanking and the Ruple dropping in value, Vladimir Putin has not stopped his advances into Ukraine.
+Although some may claim that “the world is against Russia,” some of the largest countries in the world, like India and China, have not applied any sanctions to Russia. Even amidst the Western sanctions, India has been working on a rupee-ruble mechanism that would allow trade with Russia to continue. The arrangement would also allow India to buy Russian energy exports and other goods. According to A Sakthivel, the president of the Federation of Indian Export Organisations, “... the whole of the West is banning Russia, there will be a lot of opportunities for Indian firms to enter Russia.” At this point, India has seen no backlash from the United States or other countries for increasing ties with Russia.
+
+Moreover, India is currently increasing its imports of Russian oil. The sanctions being applied by the United States and other European countries have left Russia with excess crude that it has been unable to sell. India has begun to take advantage of this gap in the market, and analysts say that China might do the same.
+
+India and China, among other countries, are not keeping Russia afloat economically. The sanctions applied by some of the largest economic countries in the world have had a clear and deep impact on the Russian economy. But the United States' backlash against India is something to look out for as NATO countries attempt to support Ukraine through their war with Russia.

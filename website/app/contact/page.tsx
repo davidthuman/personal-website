@@ -25,7 +25,7 @@ export default function ContactMe() {
             </div>
             <Image
                 className="aspect-auto object-contain rounded-r-xl "
-                src="/Berto_Bo_Orc.jpeg"
+                src="/contact/Berto_Bo_Orc.jpeg"
                 alt="David's LinkedIn Profile Page"
                 width={600}
                 height={0}
@@ -38,7 +38,7 @@ export default function ContactMe() {
                 </div>
                 <Image
                     className="aspect-auto object-contain rounded-b-xl"
-                    src="/linkedinPage.png"
+                    src="/contact/linkedinPage.png"
                     alt="David's LinkedIn Profile Page"
                     width={500}
                     height={0}
@@ -50,7 +50,7 @@ export default function ContactMe() {
                 </div>
                 <Image
                     className="aspect-auto object-contain rounded-b-xl"
-                    src="/githubPage.png"
+                    src="/contact/githubPage.png"
                     alt="David's Github Profile Page"
                     width={500}
                     height={0}

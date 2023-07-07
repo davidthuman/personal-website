@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -29,8 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "../.next/types/**/*.ts.ts.ts",
-    ".next/types/**/*.ts"
-  ],
+    ".next/types/**/*.ts", "app/resume/page.jsx"],
   "exclude": [
     "../node_modulesles"
   ]

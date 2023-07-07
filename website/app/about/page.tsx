@@ -10,10 +10,9 @@ export default function AboutMe() {
                     <div className="text-3xl">About David Thuman</div>
                     <div>The background, Thought Process, and Goals</div>
                     <ul className="pl-10 pt-5">
-                        <li>Senior at Cornell University</li>
-                        <li>Double Major in Engineering Physics and Computer Science</li>
+                        <li>Cornell University graduate</li>
+                        <li>B.S. in Engineering Physics & Computer Science</li>
                         <li>Minor in Public Policy</li>
-                        <li>President the Beta Theta Chapter of The Pi Kappa Alpha Fraternity</li>
                         <li>Born and Raised in Wilmington, North Carolina</li>
                     </ul>
 

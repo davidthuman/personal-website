@@ -1,4 +1,4 @@
-import TopNavBar from "../components/topNavBar";
+import TopNavBar from "../lib/components/topNavBar";
 import './globals.css';
 
 export default function RootLayout({
@@ -8,11 +8,13 @@ export default function RootLayout({
 }) {
     return (
         <html>
-            <head></head>
+            <head>
+                <link rel="icon" href="/favicon.ico" sizes="any" />
+            </head>
             <body>
-                <div className="bg-[#efefefff] h-screen font-body text-black pt-20">
+                <div className="bg-[#efefefff] h-screen text-black">
                     <TopNavBar></TopNavBar>
-                    <div className="font-body h-full w-full">
+                    <div className="font-body h-max w-full bg-[#efefefff]">
                         {children}
                     </div>
                 </div>

@@ -4,10 +4,39 @@ This is the code to build David Thuman's personal [website](https://davidthuman.
 
 ## Maintainence Commands
 
+### Update Content
+
+In the `website` directory
 
 `pm2 list` to list all processes that pm2 is running
 
 `pm2 delete <processId>` to delete that process
+
+`cd lib/public-content`
+
+`git pull`
+
+`cd ../..`
+
+`npm run build` to build out the app
+
+`pm2 start "npm run start -- --port 8080"`
+
+### Update Website
+
+In the `website` directory
+
+`pm2 list` to list all processes that pm2 is running
+
+`pm2 delete <processId>` to delete that process
+
+`npm install` to install all node packages to the system that are in package and package-lock
+
+`npm run build` to build out the app
+
+`pm2 start "npm run start -- --port 8080"` 
+
+### Other
 
 `ps -ael` to list all processes that are currently running
 

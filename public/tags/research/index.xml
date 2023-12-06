@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>research on David Thuman</title>
-    <link>http://127.0.0.1:5500/public/tags/research/</link>
+    <link>https://davidthuman.org/tags/research/</link>
     <description>Recent content in research on David Thuman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://127.0.0.1:5500/public/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://davidthuman.org/tags/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bill Text Length vs. Time to Vote</title>
-      <link>http://127.0.0.1:5500/public/posts/bill-text-length-vs-time-to-vote/</link>
+      <link>https://davidthuman.org/posts/bill-text-length-vs-time-to-vote/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://127.0.0.1:5500/public/posts/bill-text-length-vs-time-to-vote/</guid>
+      <guid>https://davidthuman.org/posts/bill-text-length-vs-time-to-vote/</guid>
       <description>Tags: Research</description>
     </item>
   </channel>

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>passion on David Thuman</title>
-    <link>http://127.0.0.1:5500/public/tags/passion/</link>
+    <link>https://davidthuman.org/tags/passion/</link>
     <description>Recent content in passion on David Thuman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://127.0.0.1:5500/public/tags/passion/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://davidthuman.org/tags/passion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Follow Your Dreams</title>
-      <link>http://127.0.0.1:5500/public/posts/follow-your-dreams/</link>
+      <link>https://davidthuman.org/posts/follow-your-dreams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://127.0.0.1:5500/public/posts/follow-your-dreams/</guid>
+      <guid>https://davidthuman.org/posts/follow-your-dreams/</guid>
       <description>Choose the path that you want to take. Fuck your formal education, what others tell you to do, or what your parents want you to do. This is your own life that you are living right now, and you only have one of it; so do what you want.
 Strong words that often fail to float in the reality. The truth of the world, at the moment, is that optimizing for happiness or passion does not always lead to your best life.</description>
     </item>

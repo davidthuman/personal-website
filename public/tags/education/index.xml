@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>education on David Thuman</title>
-    <link>http://127.0.0.1:5500/public/tags/education/</link>
+    <link>https://davidthuman.org/tags/education/</link>
     <description>Recent content in education on David Thuman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://127.0.0.1:5500/public/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://davidthuman.org/tags/education/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Government funded Universities</title>
-      <link>http://127.0.0.1:5500/public/posts/government-funded-universities/</link>
+      <link>https://davidthuman.org/posts/government-funded-universities/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://127.0.0.1:5500/public/posts/government-funded-universities/</guid>
+      <guid>https://davidthuman.org/posts/government-funded-universities/</guid>
       <description>There are too many PhD student and not enough professor positions. This creates a poor ‘academic paper’ environment. These people, I assume, want to do research more than teach, but I need good teachers and they want to do research. I would have them teach at all level, even if they are researching high level topics.</description>
     </item>
   </channel>

@@ -1,0 +1,80 @@
+---
+title: "Modern Senate"
+date: 2021-08-12
+author: Anonymous
+tags: "politics"
+categories: "draft"
+---
+
+- Splitting up the group: The total count of Senate members in the United States Congress is 100. These individuals will be split up into 25 total groups of 4: randomly selected, at least one registered Republican and Democrat, meetings are recorded.
+- Schedule
+    - Monday, Tuesday, Wednesday (In DC)
+        - 8:30 am: General Preparation, meeting, emails
+        - 11:30 am: Lunch
+        - 11:00 am: Voting
+        - 1:00 pm: Group Bill Discussion
+        - 4:00 pm: Break
+        - 4:30 pm: Free Collaboration Time
+        - 6:00 pm: END
+    - Thursday, Friday
+        - 6:00 am: Travel to represented State
+        - 8:00 am: Town Hall -> Speeches
+        - 9:00 am: Town Hall -> Discussion and Votes
+        - 10:30 am: Repeat Town Hall process
+        - 1:00 pm: Lunch
+        - 2:00 pm: Meetings, Discussions, Management
+- Document, Voting, and Argument Database (DVAD): [[Make IT]] ??
+    - There also needs to be a visual overlay for all of the data and their connections. One text document can be accessed, quietly, from multiple computers and devices. In a side tab connected to this document will be the complete voting list for the bill enclosed in the document. Attached to every word, or set of words is a text file full of bullet-pointed arguments, logic, and citation.
+    - All bills must be filled with relevant graphs, diagrams, or other visual aids to help general summarization of the bill. There must also be an attached worded summary of the bill. This will be used by citizens to view the bill, as well as the Congresspeople.
+    - Upload PDF allowed
+    - Upload doc, Docx allowed
+    - Download new ‘bvd’ file
+    - Download compose parts of bill PDF, voting and comment excel files
+- Accelerate the Voting System
+    - Why do they say all the names of the Congresspeople and how they vote? Having this information online and in a spreadsheet format would be a much quicker way to relay all of this information. Likewise, the scheduled 15 minute voting periods are slow and archaic. With the development of technology, communication has sped up exponentially. Having to relay your vote to one human being over physical speech is far slower than an online vote with the click of a button. An old 15 minute voting period (that usually goes over time) can now be condensed into a 1 minute or even 10-second time slot. Moreover, if this system is online (hopefully connected to the smartphone of the Congressperson, maybe even within the closed network of the Capital), they could pre-lock their vote anytime before the bill’s voting period.
+- Controlling Dynamic Change in your System
+    - When creating and developing a system with the goal of making it better, one must be able to change that system. If we allow this dynamic change to happen to our system there can be short-term highs and lows of functionality, with long-term growth overall. Without this dynamic change allowed, growth will be slow and sluggish. One problem that arises from allowing dynamic change to happen is the stress that it puts on the functionality of your system. Even though the long-term growth is positive and your system’s functionality will improve, if we look at discrete chunks of time, there is a chance that your system is functioning very poorly. Now, this is not a problem if people or other systems are not relying on the functionality of your system, but if they are, you must do this in mind when attempting to implement improvements.
+    - With the two goals of overall improvement of your system and high working functionality at all times, you must find the correct level of allowed change to balance these two factors. If we place this framework on the United States government, we can develop some interesting ideas. For one, if we trust that the Founding Fathers were smart men, we could reason why they made our government system so resistant to change. We would hope that they had their citizens in mind and their decisions were made to secure a stable level of governmental functionality.
+- Ideas for Research
+    - What are the optimal group sizes for effective and efficient communication, debate, and decision-making?
+        - We need our Senator to communicate with high efficiency. They are the elected officials/representatives that are making decisions for the citizens, so we should expect them to be as informed as they can be within the given time frame of a bill. These elected officials are clearly not experts in the majority of the topics that they are supposed to be debating. Of course, there can be some Senators with forms of college degrees that would grant them some expertise in a small area of focus, but the majority of Senators are not. First, it is hard to be an expert in a scientific field that has barely progressed, that is, there has been comparatively little research done in the field of proper ‘governments and societies’ for anyone to be an expert on it. Politics is a hard science where there is little trial and error and seemingly no solid theory except in psychology where the extrapolations are near impossible. So it seems that the ideas and argumentative points given by our Senators need to be commented on by an outside source. This could be the citizens, as it is quite hard for them to be biased against themselves, or a panel of experts, which can be easily biased or stacked to a certain side. This is where a large degree of openness comes in handy. If the Senators’ ideas and argumentative points are clearly labeled and open to the public, we will both have a criticism stream from the citizens and from a now open panel (or decentralized panel *cough, cough* block-chain of experts share their opinions of the matter). This idea of openness and allowing outsider criticism is nothing new. We have the Senate floor televised for everyone to see. The point and optimization that is occurring here are to decrease the amount of ‘friction’ there is in order to increase the amount in which they occur. You want to make it easier for your citizens to participate in the political endeavor. To decrease friction, the Document, Voting, and Argument Database (DVAD)
+    - How long should debates/discussions last?
+        - Of course, in theory, we would want our debates to last infinite time as to discuss all relative facts and argumentative points, but this is not possible nor realistic. If all relevant data is available without a long access time then the time factor mostly plays on how humans intake, process, and reorganize the information. At a baseline, this seems to rely on how fast humans can understand and draw conclusions from a certain amount of data. Assuming that most of these processes will take more than a day, how long can humans intake and think about a certain set of data points before slowing down? How should breaks be incorporated into the day to keep the minds of the Senators shark? Assuming that there are multiple bills on the floor, we should only one block of discussion per bill per day (this block could enclose multiple breaks), unless the bill has a very high priority.
+- Below needs to be organized
+- The Scheduling Process for Bills
+- Let us first have a look at some scheduling algorithms and some terms that define them.
+- Scheduling Algorithm: strategy used to pick a ready task for execution to the processor.
+    - the strategy used to decide which bills will be debated on what date, for how long, and when they should be voted on by the Senate.
+- Process terms:
+    - r : ready time of adding to the queue
+    - s : start time of execution
+    - f : finish time of execution
+    - d : absolute deadline
+- Preemptive: the running task can be temporarily suspended to execute another task. If debate has started for a bill, the Senate can shift the focus to another bill.
+- Non-preemptive: the running task cannot be suspended until completion or until it is blocked. If debate has started for a bill, it must be debated until a final vote has been reached.
+- Static or Dynamic: are decisions based on parameters that change with time? Fixed priority vs. dynamic priority?
+- Heuristic or Optimal: can you prove that the algorithm is optimal in terms of certain criteria or not?
+- Online or Offline: are the decisions made prior to knowledge of task activations (offline), or are they taken at run time based on the set of active tasks (online)?
+    - Average Response Time: a metric to optimize/minimize
+        - Response Time: R = f - r
+        - Average Response Time: average of all the response times of all the processes in a queue.
+            - Once a bill has been sponsored and proposed, the Senate would want to minimize the debate time to get the bill voted on more quickly.
+    - First Come, First Served (FCFS): non-preemptive, Online, Heuristic
+        - FCFS is rather unpredictable: response times depend strongly on task arrival times.
+        - Not suitable for real-time systems.
+    - Shortest Job First (SJF): pick the task with the shortest computation time
+        - Optimal: minimized average response time
+        - Non-preemptive
+        - Not optimal for real-time in the sense of feasibility
+    - Priority Scheduling: each task is assigned a priority, the highest priority goes first
+        - Preemptive
+        - Can be static or dynamic
+        - Online
+        - Starvation: low priority tasks may experience very long delays due to preemptive by high priority tasks.
+        - To handle starvation, we can implement aging: priority increases with waiting time.
+    - Round Robin (RR): the ready queue is FCFS, then each task has a Q unit of time (quantum) to execute after Q time is placed in the back of the queue.
+        - All processes run all the time (no starvation)
+        - Shortest jobs complete first
+        - “Fairly” split resources
+        - Delta: the amount of time needed to switch between tasks, context switch time
+    - But how does any of this relate to the Senate and Congress as a whole? The idea is to increase efficiency within our bill-making process. We want better and more thorough bills faster. In most cases, the Round Robin Scheduling approach is used as it creates an appearance of a smooth working system as all tasks appear to run at the same time. In the context of the Senate, this seems to be a valid approach as most bills (besides the annual budget) are worth equal footing to the whole of the US. As the tasks that are queued into a processor usually only deal with and concern themselves, all bills that are processed in Congress should be under the single-subject rule. This not only allows Congress to deal in one relative logical realm at a time but also gets rid of the nonsensical tool of a “rider” or “wrecking amendment”.

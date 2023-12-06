@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on David Thuman</title>
+    <link>http://127.0.0.1:5500/public/docs/</link>
+    <description>Recent content in Docs on David Thuman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://127.0.0.1:5500/public/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://127.0.0.1:5500/public/docs/about-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://127.0.0.1:5500/public/docs/about-me/</guid>
+      <description>The background, Thought Process, and Goals
+Cornell University graduate B.S. in Engineering Physics &amp;amp; Computer Science Minor in Public Policy Born and Raised in Wilmington, North Carolina I was born and raised in Wilmington, North Carolina. After I graduated high school, I have been attending Cornell University, enrolled in the College of Engineering as an Engineering Physics major. I have always loved math as a child and developed a love for physics and politics as I went on in high school.</description>
+    </item>
+  </channel>
+</rss>

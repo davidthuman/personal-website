@@ -6,8 +6,24 @@
     <description>Recent content in draft on David Thuman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://davidthuman.org/categories/draft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Everyone Should Learn Shell</title>
+      <link>https://davidthuman.org/posts/why-everyone-should-learn-shell/</link>
+      <pubDate>Sun, 12 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://davidthuman.org/posts/why-everyone-should-learn-shell/</guid>
+      <description>Shell script
+The scripting languages are funky The tool is always available Learning Shell will be the course in operating systems you never had Sockets Cron jobs file systems Networking When majoring in Computer Science at my alma mater, our CS 4410/5410: Operating Systems course was a requirement.
+Along with that, I took the practicum course, CS 4411/5411: Practicum in Operating Systems, which lets you implement sections of an operating system in C.</description>
+    </item>
+    <item>
+      <title>Lessons from my first Shell script</title>
+      <link>https://davidthuman.org/posts/lessons-from-my-first-shell-script/</link>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://davidthuman.org/posts/lessons-from-my-first-shell-script/</guid>
+      <description>One day, my manager proposed to me a task that involved backing up a folder located on server that hosts the backend our court&amp;rsquo;s local instance of CM/ECF. This folder contained JSP (Java Server Pages) file that were used to template out Word documents that can be automatically generated. As multiple types of employees (both technical and non-technical) will be editing these JSP files at anytime, we wanted a way to schedule a backup of the folder.</description>
+    </item>
     <item>
       <title>Updating Congress</title>
       <link>https://davidthuman.org/posts/updating-congress/</link>
@@ -160,6 +176,18 @@ maybe could be a rendering thing, people play the game and render the new world 
       <guid>https://davidthuman.org/posts/asymptote-framework/</guid>
       <description>Nothing in life is 100%, 1, or perfectly full. This can be proven in a quantum mechanical standpoint or through the semantics of classification. The idea of approaching the asymptote fills this gap and allows us to proceed normally with our life.
 Some people would say that there is no such thing as a Utopia, these people would be right. So is there no point of attempting to get there if the end goal is impossible to achieve?</description>
+    </item>
+    <item>
+      <title>AEP 1200 - Nano-science and Nano-technology</title>
+      <link>https://davidthuman.org/courses/aep-1200/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://davidthuman.org/courses/aep-1200/</guid>
+      <description>Nano-science is the study of phenomena and manipulation of materials at atomic, molecular, and macro-molecular scales.
+Nano-engineering is the design, characterization, production, and application of nano-science.
+Working at the 1 - 100 nanometer scale.
+Surfaces and Interfaces plat a major role.
+A 10 nm particle has &amp;gt;20% of its atoms on its surface Potential for greater control of chemical reactions Quantum size effects become important.
+Material dimensions similar to quantum mechanical wavelengths (quantum dots) Information Processing # What is different from that at the large scale?</description>
     </item>
     <item>
       <title>Bill Text Length vs. Time to Vote</title>

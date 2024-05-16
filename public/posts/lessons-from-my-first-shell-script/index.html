@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="One day, my manager proposed to me a task that involved backing up a folder located on server that hosts the backend our court&rsquo;s local instance of CM/ECF. This folder contained JSP (Java Server Pages) file that were used to template out Word documents that can be automatically generated. As multiple types of employees (both technical and non-technical) will be editing these JSP files at anytime, we wanted a way to schedule a backup of the folder.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Lessons from my first Shell script" />
+<meta property="og:description" content="One day, my manager proposed to me a task that involved backing up a folder located on server that hosts the backend our court&rsquo;s local instance of CM/ECF. This folder contained JSP (Java Server Pages) file that were used to template out Word documents that can be automatically generated. As multiple types of employees (both technical and non-technical) will be editing these JSP files at anytime, we wanted a way to schedule a backup of the folder." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://davidthuman.org/posts/lessons-from-my-first-shell-script/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-15T21:11:51-04:00" />
+
+<title>Lessons from my first Shell script | David Thuman</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.9ed457c07a68ed73ffe858e90ac43538993b63979a7059f11f32816a6270540e.js" integrity="sha256-ntRXwHpo7XP/6FjpCsQ1OJk7Y5eacFnxHzKBamJwVA4=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>David Thuman</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href=""  target="_blank" rel="noopener">
+        
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/" class="">About Me</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Posts
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/davidthuman"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.linkedin.com/in/david-thuman/"  target="_blank" rel="noopener">
+        LinkedIn
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Lessons from my first Shell script</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/lessons-from-my-first-shell-script/">Lessons from my first Shell script</a>
+  </h1>
+  
+  <h5>January 10, 2024</h5>
+
+
+
+  
+  <div>
+    
+      <a href="/categories/draft/">draft</a>
+  </div>
+  
+
+  
+  <div>
+    
+      <a href="/tags/software/">software</a>
+  </div>
+  
+
+
+
+<p>One day, my manager proposed to me a task that involved backing up a folder located on server that hosts the backend our court&rsquo;s local instance of 
+  <a href="https://en.wikipedia.org/wiki/CM/ECF">CM/ECF</a>. This folder contained JSP (Java Server Pages) file that were used to template out Word documents that can be automatically generated. As multiple types of employees (both technical and non-technical) will be editing these JSP files at anytime, we wanted a way to schedule a backup of the folder. Thus, my task was to generate a script that could sync this folder to a local instance of a git repository, and then commit these changes to its remote repo.</p>
+<p>When given the task, my manager suggested to use Shell or Python to create the script, which would be ran as a Cron jobs schedule to run every day. As Python was the first language I learned my freshman year of college, and the fact that I have never written a real Shell script before, I thought &ldquo;Phff, why would I have code is such an primitive scripting language? Python has been syntax and a comprehensive standard library. Plus, I can even use 
+  <a href="https://docs.python.org/3/library/argparse.html"><em>argparse</em></a> to give it that cool command-line feel.&rdquo;</p>
+<p>Well, I did just that. I used <em>argparse</em>, along with 
+  <a href="https://docs.python.org/3/library/subprocess.html"><em>subprocess</em></a> and 
+  <a href="https://docs.python.org/3/library/logging.html"><em>logging</em></a>, all of which are in Python 3.11&rsquo;s standard library, and created a wonderful script utilizing the <code>rsync</code> and <code>git</code> commands to complete my task. My generated logs look beautiful and my local tests were satisfied. Let me <code>ssh</code> into the test server and do some final testin &hellip; oh, it only has Python 2.6, well I&rsquo;ll just talk to my manager about installing Python3.</p>
+<p>She notifies that Python3 is installed, so I <code>ssh</code> into the test server and let me &hellip; oh, it is Python 3.6.8, well I&rsquo;ll just get my manager to update the Python3 version &hellip; oh, the internal package manager of Red Hat Linux 7 only goes up to Python 3.6.8, and &hellip; oh, building Python 3.11 from source failed. My manager tells me that Perl is readily available on the CM/ECF servers. I guess I&rsquo;ll re-write it in Shell script.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -s will be the path to the source directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -d will be the path to the destination directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -l will be the path to the log file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -m will be the git commit message</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -x will skip over the call of rsycn</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -y will run the rsync command with the --dry-run option</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -z will skip over the calls of git</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Help function to display usage and argument descriptions</span>
+</span></span><span style="display:flex;"><span>helpFunction<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Usage: </span>$0<span style="color:#e6db74"> -s SOURCE -d DESTINATION [-l LOG_FILEPATH] [-m COMMIT_MESSAGE] [-x] [-y] [-z]&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Options:&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-s \tfolder path of CM/ECF form template directory&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-d \tfolder path of CM/ECF backup local repo form template directory&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-l \tabsolute file path of the log file&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-m \tcommit message for commit&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-x \tskip calling the rsync command&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-y \tperform a trial run with no changes made when calling rsync&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\t-z \tskip calling the git commands&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set default value of optional arguments</span>
+</span></span><span style="display:flex;"><span>source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>destination<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>log_filepath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/ecf/cafc_form_template_backup.log&#34;</span>
+</span></span><span style="display:flex;"><span>commit_message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Auto-Commit from scheduled Cron job.&#34;</span>
+</span></span><span style="display:flex;"><span>skip_rsync<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>dry_run<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>skip_git<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set optional arguments</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;s:d:l:m:xyz&#34;</span> opt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> $opt in
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">)</span> source<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span> ;;
+</span></span><span style="display:flex;"><span>        d<span style="color:#f92672">)</span> destination<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span> ;;
+</span></span><span style="display:flex;"><span>        l<span style="color:#f92672">)</span> log_filepath<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span> ;;
+</span></span><span style="display:flex;"><span>        m<span style="color:#f92672">)</span> commit_message<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span> ;;
+</span></span><span style="display:flex;"><span>        x<span style="color:#f92672">)</span> skip_rsync<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        y<span style="color:#f92672">)</span> dry_run<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        z<span style="color:#f92672">)</span> skip_git<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        *<span style="color:#f92672">)</span> helpFunction
+</span></span><span style="display:flex;"><span>           exit <span style="color:#ae81ff">1</span> ;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ensure required arguments are set</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z $source <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> -z $destination <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Some or all of the required parameters are empty&#34;</span>;
+</span></span><span style="display:flex;"><span>    helpFunction
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ensure that the log file exists</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ! <span style="color:#f92672">[</span> -e $log_filepath <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    touch $log_filepath
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Log function to format and log a command&#39;s output</span>
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    DATETIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#34;%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span>$3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ! <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\n</span>$output<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;</span>$DATETIME<span style="color:#e6db74"> - STATUS: </span>$2<span style="color:#e6db74"> ACTION: &#39;</span>$1<span style="color:#e6db74">&#39; </span>$output<span style="color:#e6db74">&#34;</span> &gt;&gt; $log_filepath
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># rsync functionality</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $skip_rsync !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $dry_run <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>rsync -air --delete --dry-run $source $destination 2&gt;&amp;1<span style="color:#66d9ef">)</span>; s<span style="color:#f92672">=</span>$?; log <span style="color:#e6db74">&#34;rsync --dry-run&#34;</span> $s <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>rsync -air --delete $source $destination 2&gt;&amp;1<span style="color:#66d9ef">)</span>; s<span style="color:#f92672">=</span>$?; log <span style="color:#e6db74">&#34;rsync&#34;</span> $s <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># git functionality</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $skip_git !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    cd $destination <span style="color:#75715e"># -C flag for git command is not available for git version 1.8.3.1</span>
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>git add -A . 2&gt;&amp;1<span style="color:#66d9ef">)</span>; s<span style="color:#f92672">=</span>$?; log <span style="color:#e6db74">&#34;git add&#34;</span> $s <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>git commit -m <span style="color:#e6db74">&#34;</span>$commit_message<span style="color:#e6db74">&#34;</span> 2&gt;&amp;1<span style="color:#66d9ef">)</span>; s<span style="color:#f92672">=</span>$?; log <span style="color:#e6db74">&#34;git commit&#34;</span> $s <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>git push 2&gt;&amp;1<span style="color:#66d9ef">)</span>; s<span style="color:#f92672">=</span>$?; log <span style="color:#e6db74">&#34;git push&#34;</span> $s <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

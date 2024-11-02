@@ -47,7 +47,7 @@ jobs:
 
       - name: Copy and Start
         run: |
-          scp -i ~/.ssh/private.key ./public $SSH_USERNAME@$SSH_HOST:/var/www/data
+          scp -i ~/.ssh/private.key ./public/* $SSH_USERNAME@$SSH_HOST:/var/www/data
           scp -i ~/.ssh/private.key ./nginx/default.conf $SSH_USERNAME@$SSH_HOST:/etc/nginx/conf.d/default.conf;
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}

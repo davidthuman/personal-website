@@ -1,0 +1,54 @@
+name: Deploy Website
+
+on: [push, workflow_dispatch]
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    env:
+      HUGO_VERSION: 0.120.4
+
+    steps:
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb    
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+
+      - name: Build with Hugo
+        env:
+            HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+            HUGO_ENVIRONMENT: production
+            TZ: America/New_York
+        run: |
+          hugo \
+            --gc \
+            --minify
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/;
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key;
+          sudo chmod 600 ~/.ssh/private.key;
+          ssh-keyscan "$SSH_HOST" > ~/.ssh/known_hosts;
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_IP_ADDRESS }}
+
+      - name: Copy and Start
+        run: |
+          scp -i ~/.ssh/private.key ./public $SSH_USERNAME@$SSH_HOST:/var/www/data
+          scp -i ~/.ssh/private.key ./nginx/default.conf $SSH_USERNAME@$SSH_HOST:/etc/nginx/conf.d/default.conf;
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_HOST: ${{ secrets.SSH_IP_ADDRESS }}

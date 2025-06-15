@@ -7,3 +7,6 @@ resources
 hugo.exe
 hugo.linux
 hugo.darwin
+
+
+.DS_Store
